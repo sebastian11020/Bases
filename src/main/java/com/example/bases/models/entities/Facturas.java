@@ -24,7 +24,7 @@ public class Facturas {
     @Column(name = "fecha_factura")
     private LocalDateTime fecha_factura;
     @Column(name = "precio_producto_factura")
-    private float precio_prodcuto_factura;
+    private float precio_producto_factura;
     @Column(name = "si_pago")
     private boolean si_pago;
     @Column(name = "tipo_factura")
