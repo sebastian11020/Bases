@@ -11,20 +11,17 @@ public class PersonasServiceImpl implements PersonasService {
     @Autowired
     private PersonasRepository personasRepository;
     @Override
-    public Personas findByIdPersons(int id) {
+    public Personas findByIdPersonas(int id) {
         return personasRepository.findById(id).orElse(null);
     }
-
     @Override
     public Personas savePersonas(Personas persona) {
         return personasRepository.save(persona) ;
     }
-
     @Override
-    public int updatePersonas(Personas persona) {
-        return 0;
+    public Personas updatePersonas(int id) {
+        return personasRepository.findById(id).orElse(null);
     }
-
     @Override
     public boolean deleteByIdPersonas(int id) {
         if(personasRepository.existsById(id)){
