@@ -16,11 +16,11 @@ public class PersonasController {
     @Autowired
     private PersonasService personasService;
 
-    @PostMapping
+    @PostMapping("/personas/savePersonas")
     public ResponseEntity<Personas> savePersonas(@Valid @RequestBody Personas persona){
         return ResponseEntity.ok(personasService.savePersonas(persona));
     }
-    @PostMapping
+    @PostMapping("/personas/findAll")
     public ResponseEntity<List<Personas>> findAllPersonas() {
         List<Personas> allPersonas = personasService.findAllPersonas();
 

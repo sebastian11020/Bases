@@ -15,11 +15,11 @@ public class OfrecimientosController {
     @Autowired
     private OfrecimientosService ofrecimientosService;
 
-    @PostMapping
+    @PostMapping("/ofrecimientos/saveOfrecimientos")
     public ResponseEntity<Ofrecimientos> saveOfrecimientos(@Valid @RequestBody Ofrecimientos ofrecimientos){
         return ResponseEntity.ok(ofrecimientosService.saveOfrecimientos(ofrecimientos));
     }
-    @PostMapping
+    @PostMapping("/ofrecimientos/findAll")
     public ResponseEntity<List<Ofrecimientos>> findAllOfrecimientos() {
         List<Ofrecimientos> allOfrecimientos = ofrecimientosService.findAllOfrecimientos();
 

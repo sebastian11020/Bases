@@ -15,11 +15,11 @@ public class Empresas_AfiliadasController {
     @Autowired
     private Empresas_AfiliadasService empresas_afiliadas_service;
 
-    @PostMapping
+    @PostMapping("/empresas_afiliadas/saveEmpresas_Afiliadas")
     public ResponseEntity<Empresas_Afiliadas> saveEmpresas_Afiliadas(@Valid @RequestBody Empresas_Afiliadas empresa_afiliada){
         return ResponseEntity.ok(empresas_afiliadas_service.saveEmpresas_Afiliadas(empresa_afiliada));
     }
-    @PostMapping
+    @PostMapping("/empresas_afiliadas/findAll")
     public ResponseEntity<List<Empresas_Afiliadas>> findAllEmpresas_Afiliadas() {
         List<Empresas_Afiliadas> allEmpresas_Afiliadas = empresas_afiliadas_service.findAllEmpresas_Afiliadas();
 

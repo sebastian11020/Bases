@@ -16,11 +16,11 @@ public class FacturasController {
     @Autowired
     private FacturasService facturasService;
 
-    @PostMapping
+    @PostMapping("/facturas/saveFacturas")
     public ResponseEntity<Facturas> saveFacturas(@Valid @RequestBody Facturas facturas){
         return ResponseEntity.ok(facturasService.saveFacturas(facturas));
     }
-    @PostMapping
+    @PostMapping("/facturas/findAll")
     public ResponseEntity<List<Facturas>> findAllFacturas() {
         List<Facturas> allFacturas = facturasService.findAllFacturas();
         if (allFacturas.isEmpty()) {

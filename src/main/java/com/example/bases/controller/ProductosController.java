@@ -15,11 +15,11 @@ public class ProductosController {
     @Autowired
     private ProductosService productosService;
 
-    @PostMapping
+    @PostMapping("/productos/saveProductos")
     public ResponseEntity<Productos> saveProductos(@Valid @RequestBody Productos producto){
         return ResponseEntity.ok(productosService.saveProductos(producto));
     }
-    @PostMapping
+    @PostMapping("/eproductos/findAll")
     public ResponseEntity<List<Productos>> findAllProductos() {
         List<Productos> allProductos = productosService.findAllProductos();
 

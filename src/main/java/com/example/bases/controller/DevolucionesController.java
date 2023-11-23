@@ -16,12 +16,12 @@ public class DevolucionesController {
     @Autowired
     private DevolucionesService devolucionesService;
 
-    @PostMapping
+    @PostMapping("/devoluciones/saveDevoluciones")
     public ResponseEntity<Devoluciones> saveDevoluciones(@Valid @RequestBody Devoluciones devolucion){
         return ResponseEntity.ok(devolucionesService.saveDevoluciones(devolucion));
     }
 
-    @PostMapping
+    @PostMapping("/devoluciones/findAll")
     public ResponseEntity<List<Devoluciones>> findAllDevoluciones() {
         List<Devoluciones> allDevoluciones = devolucionesService.findAllDevoluciones();
 
