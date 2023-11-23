@@ -15,7 +15,7 @@ import java.util.List;
 @Entity
 @Table(name = "PERSONAS")
 public class Personas {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "id_persona")
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "id_persona", insertable = false, updatable = false)
     private int id_persona;
     @Column(name = "nombre_persona",length = 50)
     private String nombre;
