@@ -19,7 +19,7 @@ public class ProductosController {
     public ResponseEntity<Productos> saveProductos(@Valid @RequestBody Productos producto){
         return ResponseEntity.ok(productosService.saveProductos(producto));
     }
-    @PostMapping("/eproductos/findAll")
+    @PostMapping("/productos/findAll")
     public ResponseEntity<List<Productos>> findAllProductos() {
         List<Productos> allProductos = productosService.findAllProductos();
 
