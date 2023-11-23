@@ -1,8 +1,6 @@
 package com.example.bases.controller;
 
-import com.example.bases.models.entities.Detalles_Facturas;
 import com.example.bases.models.entities.Devoluciones;
-import com.example.bases.models.entities.Personas;
 import com.example.bases.services.DevolucionesService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;

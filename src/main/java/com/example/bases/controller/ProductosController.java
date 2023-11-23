@@ -1,6 +1,5 @@
 package com.example.bases.controller;
 
-import com.example.bases.models.entities.Empresas_Afiliadas;
 import com.example.bases.models.entities.Productos;
 import com.example.bases.services.ProductosService;
 import jakarta.validation.Valid;
