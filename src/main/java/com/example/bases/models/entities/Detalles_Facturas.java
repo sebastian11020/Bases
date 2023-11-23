@@ -21,7 +21,7 @@ public class Detalles_Facturas {
     private float cantidad_producto;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "Pk_Detalles_Facturas_Devoluciones", referencedColumnName = "id_devoluciones")
+    @JoinColumn(name = "id_devolucion", referencedColumnName = "id_devolucion")
     private Devoluciones devoluciones_detallesFacturas;
 
     @ManyToOne
