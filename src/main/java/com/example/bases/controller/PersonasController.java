@@ -1,5 +1,6 @@
 package com.example.bases.controller;
 
+import com.example.bases.models.entities.Empresas_Afiliadas;
 import com.example.bases.models.entities.Personas;
 import com.example.bases.services.PersonasService;
 import jakarta.validation.Valid;
@@ -52,5 +53,25 @@ public class PersonasController {
     @GetMapping("/{id}")
     public ResponseEntity<Personas> findByIdPersonas(@PathVariable int id) {
         return ResponseEntity.ok(personasService.findByIdPersonas(id));
+    }
+    @GetMapping("/findByNombre/{nombre}")
+    public ResponseEntity<Personas> findByNombre(@PathVariable String nombre) {
+        Personas empresa = personasService.findByNombrePersonas(nombre);
+
+        if (empresa == null) {
+            return ResponseEntity.notFound().build();
+        } else {
+            return ResponseEntity.ok(empresa);
+        }
+    }
+    @DeleteMapping("/deleteByNombre/{nombre}")
+    public ResponseEntity<?> deleteByNombre(@PathVariable String nombre) {
+        boolean deleted = personasService.deleteByNombrePersonas(nombre);
+
+        if (deleted) {
+            return ResponseEntity.ok("Eliminado Correctamente, nombre: " + nombre);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 }

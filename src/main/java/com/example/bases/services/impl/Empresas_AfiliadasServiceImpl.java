@@ -38,4 +38,18 @@ public class Empresas_AfiliadasServiceImpl implements Empresas_AfiliadasService{
             return false;
         }
     }
+    @Override
+    public Empresas_Afiliadas findByNombreEmpresasAfiliadas(String nombre) {
+        return empresas_afiliadasRepository.findByNombre(nombre);
+    }
+
+    @Override
+    public boolean deleteByNombreEmpresasAfiliadas(String nombre) {
+        Empresas_Afiliadas empresa = empresas_afiliadasRepository.findByNombre(nombre);
+        if (empresa != null) {
+            empresas_afiliadasRepository.delete(empresa);
+            return true;
+        }
+        return false;
+    }
 }

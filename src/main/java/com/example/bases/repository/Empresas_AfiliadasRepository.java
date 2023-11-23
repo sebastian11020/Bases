@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface Empresas_AfiliadasRepository extends JpaRepository<Empresas_Afiliadas, Integer> {
+    Empresas_Afiliadas findByNombre(String nombre);
 }

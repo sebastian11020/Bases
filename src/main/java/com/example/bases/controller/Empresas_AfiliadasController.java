@@ -52,4 +52,25 @@ public class Empresas_AfiliadasController {
     public ResponseEntity<Empresas_Afiliadas> findByIdPersonas(@PathVariable int id) {
         return ResponseEntity.ok(empresas_afiliadas_service.findByIdEmpresas_Afiliadas(id));
     }
+    @GetMapping("/findByNombre/{nombre}")
+    public ResponseEntity<Empresas_Afiliadas> findByNombre(@PathVariable String nombre) {
+        Empresas_Afiliadas empresa = empresas_afiliadas_service.findByNombreEmpresasAfiliadas(nombre);
+
+        if (empresa == null) {
+            return ResponseEntity.notFound().build();
+        } else {
+            return ResponseEntity.ok(empresa);
+        }
+    }
+
+    @DeleteMapping("/deleteByNombre/{nombre}")
+    public ResponseEntity<?> deleteByNombre(@PathVariable String nombre) {
+        boolean deleted = empresas_afiliadas_service.deleteByNombreEmpresasAfiliadas(nombre);
+
+        if (deleted) {
+            return ResponseEntity.ok("Eliminado Correctamente, nombre: " + nombre);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
 }

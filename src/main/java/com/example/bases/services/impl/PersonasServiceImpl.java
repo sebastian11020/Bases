@@ -1,6 +1,5 @@
 package com.example.bases.services.impl;
 
-import com.example.bases.models.entities.Detalles_Facturas;
 import com.example.bases.models.entities.Personas;
 import com.example.bases.repository.PersonasRepository;
 import com.example.bases.services.PersonasService;
@@ -37,5 +36,19 @@ public class PersonasServiceImpl implements PersonasService {
         }else{
             return false;
         }
+    }
+    @Override
+    public Personas findByNombrePersonas(String nombre) {
+        return personasRepository.findByNombre(nombre);
+    }
+
+    @Override
+    public boolean deleteByNombrePersonas(String nombre) {
+        Personas persona = personasRepository.findByNombre(nombre);
+        if (persona != null) {
+            personasRepository.delete(persona);
+            return true;
+        }
+        return false;
     }
 }
