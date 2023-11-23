@@ -14,12 +14,9 @@ import lombok.NoArgsConstructor;
 @Table(name = "DETALLES_FACTURAS")
 public class Detalles_Facturas {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "id_devoluciones")
-    private int id_devoluciones;
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "id_producto")
-    private int id_producto;
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "id_factura")
-    private int id_factura;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int detalles_factura_id;
+
     @Column(name = "cantidad_producto")
     private float cantidad_producto;
 
@@ -28,10 +25,8 @@ public class Detalles_Facturas {
     private Devoluciones devoluciones_detallesFacturas;
 
     @ManyToOne
-    @JoinColumn(name = "id_factura")
-    private Detalles_Facturas detallesFacturas_factura;
+    private Detalles_Facturas detalles_Factura_factura;
 
     @ManyToOne
-    @JoinColumn(name = "id_producto")
-    private Detalles_Facturas detallesFacturas_productos;
+    private Detalles_Facturas detalles_Factura_productos;
 }

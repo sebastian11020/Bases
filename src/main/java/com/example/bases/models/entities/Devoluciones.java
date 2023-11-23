@@ -16,9 +16,7 @@ public class Devoluciones {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "id_devolucion")
     private int id_devolucion;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "id_persona")
-    private int id_persona;
+
     @Column(name = "motivo_devolucion",length = 100)
     private String motivo_devolucion;
 
@@ -26,6 +24,5 @@ public class Devoluciones {
     private Detalles_Facturas detalles_facturas;
 
     @ManyToOne
-    @JoinColumn(name = "id_persona")
     private Personas persona_devolucion;
 }

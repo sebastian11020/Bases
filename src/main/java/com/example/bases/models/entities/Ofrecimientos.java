@@ -13,20 +13,11 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "OFRECIMIENTOS")
 public class Ofrecimientos {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "id_producto")
-    private int id_producto;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "id_persona")
-    private int id_persona;
+
+    @EmbeddedId
+    private OfrecimientosID primaryKey;
+
     @Column(name = "precio_ofrecimiento")
     private float precio_ofrecimiento;
 
-    @ManyToOne
-    @JoinColumn(name = "id_persona")
-    private Personas persona_ofrecimientos;
-
-    @ManyToOne
-    @JoinColumn(name = "id_producto")
-    private Productos producto_ofrecimientos;
 }

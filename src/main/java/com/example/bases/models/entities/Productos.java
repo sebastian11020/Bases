@@ -27,10 +27,10 @@ public class Productos {
     @Column(name = "fecha_vencimiento_producto")
     private LocalDate fecha_vencimiento_producto;
 
-    @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "producto_ofrecimientos", cascade = CascadeType.ALL)
     private List<Ofrecimientos> ofrecimientos_productos;
 
-    @OneToMany(mappedBy = "producto", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "detalles_Factura_productos", cascade = CascadeType.ALL)
     private List<Detalles_Facturas> detallesFacturas_productos;
 
 }
