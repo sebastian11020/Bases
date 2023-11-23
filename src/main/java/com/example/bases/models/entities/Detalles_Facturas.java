@@ -25,8 +25,8 @@ public class Detalles_Facturas {
     private Devoluciones devoluciones_detallesFacturas;
 
     @ManyToOne
-    private Detalles_Facturas detalles_Factura_factura;
+    private Facturas detalles_Factura_factura;
 
     @ManyToOne
-    private Detalles_Facturas detalles_Factura_productos;
+    private Productos detalles_Factura_productos;
 }
