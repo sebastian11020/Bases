@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Embeddable
 public class OfrecimientosID implements java.io.Serializable{
 
-    @ManyToOne @JoinColumn (name ="id_persona" ,referencedColumnName ="id_persona" )
+    @ManyToOne
     private Personas persona_ofrecimientos;
 
     @ManyToOne @JoinColumn (name ="id_producto" ,referencedColumnName ="id_producto" )
