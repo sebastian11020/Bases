@@ -10,44 +10,44 @@ import java.util.List;
 @Service
 public class ProductosServiceImpl implements ProductosService {
     @Autowired
-    private ProductosRepository productosRepositoryRepository;
+    private ProductosRepository productosRepository;
     @Override
     public Productos findByIdProductos(int id) {
-        return productosRepositoryRepository.findById(id).orElse(null);
+        return productosRepository.findById(id).orElse(null);
     }
     @Override
     public List<Productos> findAllProductos() {
-        return productosRepositoryRepository.findAll();
+        return productosRepository.findAll();
     }
     @Override
     public Productos saveProductos(Productos producto) {
-        return productosRepositoryRepository.save(producto) ;
+        return productosRepository.save(producto) ;
     }
     @Override
     public Productos updateProductos(int id) {
-        return productosRepositoryRepository.findById(id).orElse(null);
+        return productosRepository.findById(id).orElse(null);
     }
     @Override
     public boolean deleteByIdProductos(int id) {
-        if(productosRepositoryRepository.existsById(id)){
-            productosRepositoryRepository.deleteById(id);
+        if(productosRepository.existsById(id)){
+            productosRepository.deleteById(id);
             return true;
         }else{
             return false;
         }
     }
-    @Override
+    /*@Override
     public Productos findByNombreProductos(String nombre) {
-        return productosRepositoryRepository.findByNombre(nombre);
+        return productosRepository.findByNombre(nombre);
     }
 
     @Override
     public boolean deleteByNombreProductos(String nombre) {
-        Productos producto = productosRepositoryRepository.findByNombre(nombre);
+        Productos producto = productosRepository.findByNombre(nombre);
         if (producto != null) {
-            productosRepositoryRepository.delete(producto);
+            productosRepository.delete(producto);
             return true;
         }
         return false;
-    }
+    }*/
 }

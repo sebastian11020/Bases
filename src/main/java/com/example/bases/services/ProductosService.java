@@ -10,6 +10,6 @@ public interface ProductosService {
     public Productos saveProductos(Productos producto);
     public Productos updateProductos(int id);
     public boolean deleteByIdProductos(int id);
-    Productos findByNombreProductos(String nombre);
-    boolean deleteByNombreProductos(String nombre);
+    /*Productos findByNombreProductos(String nombre);
+    boolean deleteByNombreProductos(String nombre);*/
 }

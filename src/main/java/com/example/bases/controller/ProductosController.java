@@ -55,7 +55,7 @@ public class ProductosController {
     public ResponseEntity<Productos> findByIdProductos(@PathVariable int id) {
         return ResponseEntity.ok(productosService.findByIdProductos(id));
     }
-    @GetMapping("Productos/findByNombreProductos/{nombre}")
+    /*@GetMapping("Productos/findByNombreProductos/{nombre}")
     public ResponseEntity<Productos> findByProductos(@PathVariable String nombre) {
         Productos empresa = productosService.findByNombreProductos(nombre);
 
@@ -73,5 +73,5 @@ public class ProductosController {
         } else {
             return ResponseEntity.notFound().build();
         }
-    }
+    }*/
 }
