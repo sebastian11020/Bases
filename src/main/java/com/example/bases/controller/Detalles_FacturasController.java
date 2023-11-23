@@ -8,17 +8,17 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("api/v1/bases")
+@RequestMapping("api/v1/Bases")
 public class Detalles_FacturasController {
     @Autowired
     private Detalles_FacturasService detalles_FacturasService;
 
     @PostMapping
-    public ResponseEntity<Detalles_Facturas> savePersonas(@Valid @RequestBody Detalles_Facturas detalles_factura){
+    public ResponseEntity<Detalles_Facturas> saveDetalles_Facturas(@Valid @RequestBody Detalles_Facturas detalles_factura){
         return ResponseEntity.ok(detalles_FacturasService.saveDetalles_Facturas(detalles_factura));
     }
     @PutMapping("/{id}")
-    public ResponseEntity<Detalles_Facturas> updatePersonas(@PathVariable int id, @Valid @RequestBody Detalles_Facturas updatedDetallesFactura) {
+    public ResponseEntity<Detalles_Facturas> updateDetalles_Facturas(@PathVariable int id, @Valid @RequestBody Detalles_Facturas updatedDetallesFactura) {
         Detalles_Facturas existingDetalles_Facturas = detalles_FacturasService.findByIdDetalles_Facturas(id);
 
         if (existingDetalles_Facturas == null) {
@@ -31,12 +31,12 @@ public class Detalles_FacturasController {
         return ResponseEntity.ok(updatedDetallesFacturaEntity);
     }
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteByIdPersonas(@PathVariable Integer id){
+    public ResponseEntity<?> deleteByIdDetalles_Facturas(@PathVariable Integer id){
         return detalles_FacturasService.deleteByIdDetalles_Facturas(id)? ResponseEntity.ok("Eliminado Correctamente, id: "+id)
                 :ResponseEntity.notFound().build();
     }
     @GetMapping("/{id}")
-    public ResponseEntity<Detalles_Facturas> findByIdPersonas(@PathVariable int id) {
+    public ResponseEntity<Detalles_Facturas> findByIdDetallesFacturas(@PathVariable int id) {
         return ResponseEntity.ok(detalles_FacturasService.findByIdDetalles_Facturas(id));
     }
 }

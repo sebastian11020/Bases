@@ -9,7 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("api/v1/bases")
+@RequestMapping("api/v1/Bases")
 public class DevolucionesController {
 
     @Autowired
@@ -33,7 +33,7 @@ public class DevolucionesController {
         return ResponseEntity.ok(updatedDevolucionesEntity);
     }
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteByIdPersonas(@PathVariable Integer id){
+    public ResponseEntity<?> deleteByIdDevoluciones(@PathVariable Integer id){
         return devolucionesService.deleteByIdDevoluciones(id)? ResponseEntity.ok("Eliminado Correctamente, id: "+id)
                 :ResponseEntity.notFound().build();
     }

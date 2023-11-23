@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("api/v1/bases")
+@RequestMapping("api/v1/Bases")
 public class Empresas_AfiliadasController {
     @Autowired
     private Empresas_AfiliadasService empresas_afiliadas_service;
