@@ -6,6 +6,8 @@ import com.example.bases.services.Detalles_FacturasService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class Detalles_FacturasServiceImpl implements Detalles_FacturasService {
     @Autowired
@@ -13,6 +15,10 @@ public class Detalles_FacturasServiceImpl implements Detalles_FacturasService {
     @Override
     public Detalles_Facturas findByIdDetalles_Facturas(int id){
         return detalles_FacturasRepository.findById(id).orElse(null);
+    }
+    @Override
+    public List<Detalles_Facturas> findAllDetalles_Facturas() {
+        return detalles_FacturasRepository.findAll();
     }
     @Override
     public Detalles_Facturas saveDetalles_Facturas(Detalles_Facturas detalles_facturas) {

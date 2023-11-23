@@ -7,15 +7,22 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("api/v1/Bases")
 public class Detalles_FacturasController {
     @Autowired
     private Detalles_FacturasService detalles_FacturasService;
-
     @PostMapping
-    public ResponseEntity<Detalles_Facturas> saveDetalles_Facturas(@Valid @RequestBody Detalles_Facturas detalles_factura){
-        return ResponseEntity.ok(detalles_FacturasService.saveDetalles_Facturas(detalles_factura));
+    public ResponseEntity<List<Detalles_Facturas>> findAllDetallesFacturas() {
+        List<Detalles_Facturas> allDetallesFacturas = detalles_FacturasService.findAllDetalles_Facturas();
+
+        if (allDetallesFacturas.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.ok(allDetallesFacturas);
+        }
     }
     @PutMapping("/{id}")
     public ResponseEntity<Detalles_Facturas> updateDetalles_Facturas(@PathVariable int id, @Valid @RequestBody Detalles_Facturas updatedDetallesFactura) {

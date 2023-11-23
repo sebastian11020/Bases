@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("api/v1/Bases")
 public class PersonasController {
@@ -17,6 +19,16 @@ public class PersonasController {
     @PostMapping
     public ResponseEntity<Personas> savePersonas(@Valid @RequestBody Personas persona){
         return ResponseEntity.ok(personasService.savePersonas(persona));
+    }
+    @PostMapping
+    public ResponseEntity<List<Personas>> findAllPersonas() {
+        List<Personas> allPersonas = personasService.findAllPersonas();
+
+        if (allPersonas.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.ok(allPersonas);
+        }
     }
     @PutMapping("/{id}")
     public ResponseEntity<Personas> updatePersonas(@PathVariable int id, @Valid @RequestBody Personas updatedPersona) {

@@ -1,10 +1,13 @@
 package com.example.bases.services.impl;
 
+import com.example.bases.models.entities.Detalles_Facturas;
 import com.example.bases.models.entities.Personas;
 import com.example.bases.repository.PersonasRepository;
 import com.example.bases.services.PersonasService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class PersonasServiceImpl implements PersonasService {
@@ -13,6 +16,10 @@ public class PersonasServiceImpl implements PersonasService {
     @Override
     public Personas findByIdPersonas(int id) {
         return personasRepository.findById(id).orElse(null);
+    }
+    @Override
+    public List<Personas> findAllPersonas() {
+        return personasRepository.findAll();
     }
     @Override
     public Personas savePersonas(Personas persona) {

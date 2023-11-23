@@ -1,5 +1,6 @@
 package com.example.bases.controller;
 
+import com.example.bases.models.entities.Detalles_Facturas;
 import com.example.bases.models.entities.Devoluciones;
 import com.example.bases.models.entities.Personas;
 import com.example.bases.services.DevolucionesService;
@@ -7,6 +8,8 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/Bases")
@@ -18,6 +21,17 @@ public class DevolucionesController {
     @PostMapping
     public ResponseEntity<Devoluciones> saveDevoluciones(@Valid @RequestBody Devoluciones devolucion){
         return ResponseEntity.ok(devolucionesService.saveDevoluciones(devolucion));
+    }
+
+    @PostMapping
+    public ResponseEntity<List<Devoluciones>> findAllDetallesFacturas() {
+        List<Devoluciones> allDevoluciones = devolucionesService.findAllDevoluciones();
+
+        if (allDevoluciones.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.ok(allDevoluciones);
+        }
     }
     @PutMapping("/{id}")
     public ResponseEntity<Devoluciones> updateDevoluciones(@PathVariable int id, @Valid @RequestBody Devoluciones updatedDevolucion) {

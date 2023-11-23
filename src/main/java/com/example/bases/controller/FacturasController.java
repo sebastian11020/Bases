@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("api/v1/Bases")
 public class FacturasController {
@@ -17,6 +19,15 @@ public class FacturasController {
     @PostMapping
     public ResponseEntity<Facturas> savePersonas(@Valid @RequestBody Facturas facturas){
         return ResponseEntity.ok(facturasService.saveFacturas(facturas));
+    }
+    @PostMapping
+    public ResponseEntity<List<Facturas>> findAllFacturas() {
+        List<Facturas> allFacturas = facturasService.findAllFacturas();
+        if (allFacturas.isEmpty()) {
+            return ResponseEntity.noContent().build();
+        } else {
+            return ResponseEntity.ok(allFacturas);
+        }
     }
     @PutMapping("/{id}")
     public ResponseEntity<Facturas> updatePersonas(@PathVariable int id, @Valid @RequestBody Facturas updatedFactura) {
