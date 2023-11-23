@@ -30,7 +30,7 @@ public class OfrecimientosController {
         }
     }
 
-    @PutMapping("/Facturas/updateFacturas/{id}")
+    @PutMapping("/Ofrecimientos/updateOfrecimientos/{id}")
     public ResponseEntity<Ofrecimientos> updateOfrecimientos(@PathVariable int id, @Valid @RequestBody Ofrecimientos updatedOfrecimientos) {
         Ofrecimientos existingOfrecimientos = ofrecimientosService.findByIdOfrecimientos(id);
 
@@ -43,12 +43,12 @@ public class OfrecimientosController {
         Ofrecimientos updatedPersonasEntity = ofrecimientosService.saveOfrecimientos(existingOfrecimientos);
         return ResponseEntity.ok(updatedPersonasEntity);
     }
-    @DeleteMapping("/Facturas/deleteByIdFacturas/{id}")
+    @DeleteMapping("/Ofrecimientos/deleteByIdOfrecimientos/{id}")
     public ResponseEntity<?> deleteByIdOfrecimientos(@PathVariable Integer id){
         return ofrecimientosService.deleteByIdOfrecimientos(id)? ResponseEntity.ok("Eliminado Correctamente, id: "+id)
                 :ResponseEntity.notFound().build();
     }
-    @GetMapping("/Facturas/findByIdFacturas/{id}")
+    @GetMapping("/Ofrecimientos/findByIdOfrecimientos/{id}")
     public ResponseEntity<Ofrecimientos> findByIdOfrecimientos(@PathVariable int id) {
         return ResponseEntity.ok(ofrecimientosService.findByIdOfrecimientos(id));
     }
