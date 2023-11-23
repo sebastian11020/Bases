@@ -30,7 +30,7 @@ public class Empresas_AfiliadasController {
         }
     }
 
-    @PutMapping("/Empresas_Afiliadas/updatePersonas/{id}")
+    @PutMapping("/Empresas_Afiliadas/updateEmpresas_Afiliadas/{id}")
     public ResponseEntity<Empresas_Afiliadas> updateEmpresas_Afiliadas(@PathVariable int id, @Valid @RequestBody Empresas_Afiliadas updatedEmpresa_Afiliada) {
         Empresas_Afiliadas existingEmpresa_Afiliada = empresas_afiliadas_service.findByIdEmpresas_Afiliadas(id);
 
@@ -43,7 +43,7 @@ public class Empresas_AfiliadasController {
         Empresas_Afiliadas updatedPersonasEntity = empresas_afiliadas_service.saveEmpresas_Afiliadas(existingEmpresa_Afiliada);
         return ResponseEntity.ok(updatedPersonasEntity);
     }
-    @DeleteMapping("/Empresas_Afiliadas/deleteById/{id}")
+    @DeleteMapping("/Empresas_Afiliadas/deleteByIdEmpresas_Afiliadas/{id}")
     public ResponseEntity<?> deleteByIdEmpresas_Afiliadas(@PathVariable Integer id){
         return empresas_afiliadas_service.deleteByIdEmpresas_Afiliadas(id)? ResponseEntity.ok("Eliminado Correctamente, id: "+id)
                 :ResponseEntity.notFound().build();
@@ -52,7 +52,7 @@ public class Empresas_AfiliadasController {
     public ResponseEntity<Empresas_Afiliadas> findByIdEmpresas_Afiliadas(@PathVariable int id) {
         return ResponseEntity.ok(empresas_afiliadas_service.findByIdEmpresas_Afiliadas(id));
     }
-    @GetMapping("/Empresas_Afiliadas/findByNombre/{nombre}")
+    @GetMapping("/Empresas_Afiliadas/findByNombreEmpresas_Afiliadas/{nombre}")
     public ResponseEntity<Empresas_Afiliadas> findByNombreEmpresas_Afiliadas(@PathVariable String nombre) {
         Empresas_Afiliadas empresa = empresas_afiliadas_service.findByNombreEmpresasAfiliadas(nombre);
 
@@ -63,7 +63,7 @@ public class Empresas_AfiliadasController {
         }
     }
 
-    @DeleteMapping("/Empresas_Afiliadas/deleteByNombre/{nombre}")
+    @DeleteMapping("/Empresas_Afiliadas/deleteByNombreEmpresas_Afiliadas/{nombre}")
     public ResponseEntity<?> deleteByNombreEmpresas_Afiliadas(@PathVariable String nombre) {
         boolean deleted = empresas_afiliadas_service.deleteByNombreEmpresasAfiliadas(nombre);
 
