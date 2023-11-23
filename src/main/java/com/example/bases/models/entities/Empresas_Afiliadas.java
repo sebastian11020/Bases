@@ -21,6 +21,6 @@ public class Empresas_Afiliadas {
     @Column(name = "nombre_empresa",length = 50)
     private String nombre;
 
-    @OneToMany(mappedBy = "empresa_persona", cascade = CascadeType.ALL)
-    private List<Personas> personas_empresa;
+    /*@OneToMany(mappedBy = "empresa_afiliada", cascade = CascadeType.ALL)
+    private List<Personas> personas_empresa;*/
 }

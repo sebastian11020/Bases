@@ -26,8 +26,8 @@ public class Facturas {
     @Column(name = "tipo_factura")
     private TIPO_FACTURA tipo_factura;
 
-    @OneToMany(mappedBy = "detalles_Factura_factura", cascade = CascadeType.ALL)
-    private List<Detalles_Facturas> detallesFacturas;
+    /*@OneToMany(mappedBy = "detalles_Factura_factura", cascade = CascadeType.ALL)
+    private List<Detalles_Facturas> detallesFacturas;*/
 
     @ManyToOne @JoinColumn (name ="id_persona_genera" ,referencedColumnName ="id_persona" )
     private Personas persona_genera;

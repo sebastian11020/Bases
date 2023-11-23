@@ -22,7 +22,7 @@ public class Personas {
     @Column(name = "numero_contacto")
     private int numero_contacto;
 
-    @OneToMany(mappedBy = "persona_genera", cascade = CascadeType.ALL)
+    /*@OneToMany(mappedBy = "persona_genera", cascade = CascadeType.ALL)
     private List<Facturas> facturas_genera;
 
     @OneToMany(mappedBy = "persona_adquiere", cascade = CascadeType.ALL)
@@ -31,7 +31,7 @@ public class Personas {
     @OneToMany(mappedBy = "persona_devolucion", cascade = CascadeType.ALL)
     private List<Devoluciones> devoluciones_persona;
 
-    /*OneToMany(mappedBy = "persona_ofrecimientos", cascade = CascadeType.ALL)
+    OneToMany(mappedBy = "persona_ofrecimientos", cascade = CascadeType.ALL)
     private List<Ofrecimientos> ofrecimientos_persona;*/
 
     @ManyToOne

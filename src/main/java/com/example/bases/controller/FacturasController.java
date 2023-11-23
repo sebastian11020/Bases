@@ -17,7 +17,7 @@ public class FacturasController {
     private FacturasService facturasService;
 
     @PostMapping
-    public ResponseEntity<Facturas> savePersonas(@Valid @RequestBody Facturas facturas){
+    public ResponseEntity<Facturas> saveFacturas(@Valid @RequestBody Facturas facturas){
         return ResponseEntity.ok(facturasService.saveFacturas(facturas));
     }
     @PostMapping
@@ -29,8 +29,8 @@ public class FacturasController {
             return ResponseEntity.ok(allFacturas);
         }
     }
-    @PutMapping("/{id}")
-    public ResponseEntity<Facturas> updatePersonas(@PathVariable int id, @Valid @RequestBody Facturas updatedFactura) {
+    @PutMapping("/Facturas/updateFacturas/{id}")
+    public ResponseEntity<Facturas> updateFacturas(@PathVariable int id, @Valid @RequestBody Facturas updatedFactura) {
         Facturas existingFactura = facturasService.findByIdFacturas(id);
 
         if (existingFactura == null) {
@@ -45,13 +45,13 @@ public class FacturasController {
         Facturas updatedFacturasEntity = facturasService.saveFacturas(existingFactura);
         return ResponseEntity.ok(updatedFacturasEntity);
     }
-    @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteByIdPersonas(@PathVariable Integer id){
+    @DeleteMapping("/Facturas/deleteByIdFacturas/{id}")
+    public ResponseEntity<?> deleteByIdFacturas(@PathVariable Integer id){
         return facturasService.deleteByIdFacturas(id)? ResponseEntity.ok("Eliminado Correctamente, id: "+id)
                 :ResponseEntity.notFound().build();
     }
-    @GetMapping("/{id}")
-    public ResponseEntity<Facturas> findByIdPersonas(@PathVariable int id) {
+    @GetMapping("/Facturas/findBYIdFacturas/{id}")
+    public ResponseEntity<Facturas> findByIdFacturas(@PathVariable int id) {
         return ResponseEntity.ok(facturasService.findByIdFacturas(id));
     }
 }

@@ -24,7 +24,7 @@ public class Detalles_FacturasController {
             return ResponseEntity.ok(allDetallesFacturas);
         }
     }
-    @PutMapping("/{id}")
+    @PutMapping("/Detalles_Facturas/updateDetalles_facturas/{id}")
     public ResponseEntity<Detalles_Facturas> updateDetalles_Facturas(@PathVariable int id, @Valid @RequestBody Detalles_Facturas updatedDetallesFactura) {
         Detalles_Facturas existingDetalles_Facturas = detalles_FacturasService.findByIdDetalles_Facturas(id);
 
@@ -37,12 +37,12 @@ public class Detalles_FacturasController {
         Detalles_Facturas updatedDetallesFacturaEntity = detalles_FacturasService.saveDetalles_Facturas(existingDetalles_Facturas);
         return ResponseEntity.ok(updatedDetallesFacturaEntity);
     }
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/Detalles_Facturas/deleteByIdDetalles_facturas/{id}")
     public ResponseEntity<?> deleteByIdDetalles_Facturas(@PathVariable Integer id){
         return detalles_FacturasService.deleteByIdDetalles_Facturas(id)? ResponseEntity.ok("Eliminado Correctamente, id: "+id)
                 :ResponseEntity.notFound().build();
     }
-    @GetMapping("/{id}")
+    @GetMapping("/Detalles_Facturas/findByIdDetallesFacturas/{id}")
     public ResponseEntity<Detalles_Facturas> findByIdDetallesFacturas(@PathVariable int id) {
         return ResponseEntity.ok(detalles_FacturasService.findByIdDetalles_Facturas(id));
     }

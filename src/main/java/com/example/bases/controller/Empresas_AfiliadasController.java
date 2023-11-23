@@ -30,8 +30,8 @@ public class Empresas_AfiliadasController {
         }
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Empresas_Afiliadas> updatePersonas(@PathVariable int id, @Valid @RequestBody Empresas_Afiliadas updatedEmpresa_Afiliada) {
+    @PutMapping("/Empresas_Afiliadas/updatePersonas/{id}")
+    public ResponseEntity<Empresas_Afiliadas> updateEmpresas_Afiliadas(@PathVariable int id, @Valid @RequestBody Empresas_Afiliadas updatedEmpresa_Afiliada) {
         Empresas_Afiliadas existingEmpresa_Afiliada = empresas_afiliadas_service.findByIdEmpresas_Afiliadas(id);
 
         if (existingEmpresa_Afiliada == null) {
@@ -43,17 +43,17 @@ public class Empresas_AfiliadasController {
         Empresas_Afiliadas updatedPersonasEntity = empresas_afiliadas_service.saveEmpresas_Afiliadas(existingEmpresa_Afiliada);
         return ResponseEntity.ok(updatedPersonasEntity);
     }
-    @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteByIdPersonas(@PathVariable Integer id){
+    @DeleteMapping("/Empresas_Afiliadas/deleteById/{id}")
+    public ResponseEntity<?> deleteByIdEmpresas_Afiliadas(@PathVariable Integer id){
         return empresas_afiliadas_service.deleteByIdEmpresas_Afiliadas(id)? ResponseEntity.ok("Eliminado Correctamente, id: "+id)
                 :ResponseEntity.notFound().build();
     }
     @GetMapping("/{id}")
-    public ResponseEntity<Empresas_Afiliadas> findByIdPersonas(@PathVariable int id) {
+    public ResponseEntity<Empresas_Afiliadas> findByIdEmpresas_Afiliadas(@PathVariable int id) {
         return ResponseEntity.ok(empresas_afiliadas_service.findByIdEmpresas_Afiliadas(id));
     }
-    @GetMapping("/findByNombre/{nombre}")
-    public ResponseEntity<Empresas_Afiliadas> findByNombre(@PathVariable String nombre) {
+    @GetMapping("/Empresas_Afiliadas/findByNombre/{nombre}")
+    public ResponseEntity<Empresas_Afiliadas> findByNombreEmpresas_Afiliadas(@PathVariable String nombre) {
         Empresas_Afiliadas empresa = empresas_afiliadas_service.findByNombreEmpresasAfiliadas(nombre);
 
         if (empresa == null) {
@@ -63,8 +63,8 @@ public class Empresas_AfiliadasController {
         }
     }
 
-    @DeleteMapping("/deleteByNombre/{nombre}")
-    public ResponseEntity<?> deleteByNombre(@PathVariable String nombre) {
+    @DeleteMapping("/Empresas_Afiliadas/deleteByNombre/{nombre}")
+    public ResponseEntity<?> deleteByNombreEmpresas_Afiliadas(@PathVariable String nombre) {
         boolean deleted = empresas_afiliadas_service.deleteByNombreEmpresasAfiliadas(nombre);
 
         if (deleted) {

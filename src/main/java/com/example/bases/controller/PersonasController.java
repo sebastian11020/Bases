@@ -31,7 +31,7 @@ public class PersonasController {
             return ResponseEntity.ok(allPersonas);
         }
     }
-    @PutMapping("/{id}")
+    @PutMapping("Personas/updatePersonas/{id}")
     public ResponseEntity<Personas> updatePersonas(@PathVariable int id, @Valid @RequestBody Personas updatedPersona) {
         Personas existingPersona = personasService.findByIdPersonas(id);
 
@@ -45,16 +45,16 @@ public class PersonasController {
         Personas updatedPersonasEntity = personasService.savePersonas(existingPersona);
         return ResponseEntity.ok(updatedPersonasEntity);
     }
-    @DeleteMapping("/{id}")
+    @DeleteMapping("Personas/deleteByIdPersonas/{id}")
     public ResponseEntity<?> deleteByIdPersonas(@PathVariable Integer id){
         return personasService.deleteByIdPersonas(id)? ResponseEntity.ok("Eliminado Correctamente, id: "+id)
                 :ResponseEntity.notFound().build();
     }
-    @GetMapping("/{id}")
+    @GetMapping("Personas/findByNombrePersonas/{id}")
     public ResponseEntity<Personas> findByIdPersonas(@PathVariable int id) {
         return ResponseEntity.ok(personasService.findByIdPersonas(id));
     }
-    @GetMapping("/findByNombre/{nombre}")
+    @GetMapping("Personas/findByNombrePersonas/{nombre}")
     public ResponseEntity<Personas> findByNombre(@PathVariable String nombre) {
         Personas empresa = personasService.findByNombrePersonas(nombre);
 
@@ -64,7 +64,7 @@ public class PersonasController {
             return ResponseEntity.ok(empresa);
         }
     }
-    @DeleteMapping("/deleteByNombre/{nombre}")
+    @DeleteMapping("Personas/deleteByNombrePersonas/{nombre}")
     public ResponseEntity<?> deleteByNombre(@PathVariable String nombre) {
         boolean deleted = personasService.deleteByNombrePersonas(nombre);
 

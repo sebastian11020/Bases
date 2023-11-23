@@ -33,7 +33,7 @@ public class DevolucionesController {
             return ResponseEntity.ok(allDevoluciones);
         }
     }
-    @PutMapping("/{id}")
+    @PutMapping("/Devoluciones/updateDevoluciones/{id}")
     public ResponseEntity<Devoluciones> updateDevoluciones(@PathVariable int id, @Valid @RequestBody Devoluciones updatedDevolucion) {
         Devoluciones existingDevolucion = devolucionesService.findByIdDevoluciones(id);
 
@@ -46,12 +46,12 @@ public class DevolucionesController {
         Devoluciones updatedDevolucionesEntity = devolucionesService.saveDevoluciones(existingDevolucion);
         return ResponseEntity.ok(updatedDevolucionesEntity);
     }
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/Devoluciones/deleteByIdDevoluciones/{id}")
     public ResponseEntity<?> deleteByIdDevoluciones(@PathVariable Integer id){
         return devolucionesService.deleteByIdDevoluciones(id)? ResponseEntity.ok("Eliminado Correctamente, id: "+id)
                 :ResponseEntity.notFound().build();
     }
-    @GetMapping("/{id}")
+    @GetMapping("/Devoluciones/findByIdDevoluciones/{id}")
     public ResponseEntity<Devoluciones> findByIdDevoluciones(@PathVariable int id) {
         return ResponseEntity.ok(devolucionesService.findByIdDevoluciones(id));
     }
