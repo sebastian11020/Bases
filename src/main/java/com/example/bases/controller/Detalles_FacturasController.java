@@ -14,7 +14,7 @@ import java.util.List;
 public class Detalles_FacturasController {
     @Autowired
     private Detalles_FacturasService detalles_FacturasService;
-    @PostMapping
+    @PostMapping("/detalles_facturas/findAll")
     public ResponseEntity<List<Detalles_Facturas>> findAllDetallesFacturas() {
         List<Detalles_Facturas> allDetallesFacturas = detalles_FacturasService.findAllDetalles_Facturas();
 

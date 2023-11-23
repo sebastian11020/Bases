@@ -22,7 +22,7 @@ public class DevolucionesController {
     }
 
     @PostMapping
-    public ResponseEntity<List<Devoluciones>> findAllDetallesFacturas() {
+    public ResponseEntity<List<Devoluciones>> findAllDevoluciones() {
         List<Devoluciones> allDevoluciones = devolucionesService.findAllDevoluciones();
 
         if (allDevoluciones.isEmpty()) {
