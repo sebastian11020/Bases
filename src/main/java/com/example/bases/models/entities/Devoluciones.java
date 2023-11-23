@@ -20,9 +20,6 @@ public class Devoluciones {
     @Column(name = "motivo_devolucion",length = 100)
     private String motivo_devolucion;
 
-    /*@OneToOne(mappedBy = "devoluciones_detallesFacturas")
-    private Detalles_Facturas detalles_facturas;*/
-
     @ManyToOne
     private Personas persona_devolucion;
 }
